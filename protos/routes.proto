@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package router;
+
+service Routes {
+    rpc GetGreeting(Language) returns (Greeting);
+}
+
+message Language {
+    string language = 1;
+}
+
+message Greeting {
+    string greeting = 1;
+}
