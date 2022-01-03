@@ -17,6 +17,8 @@ node_modules
 
 # OSX
 .DS_Store
+dist
+build
 
 src/compiled
 release/app/dist
