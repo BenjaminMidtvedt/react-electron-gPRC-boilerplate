@@ -17,7 +17,7 @@
     "protoc": "proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=src/compiled protos/routes.proto && poetry run python -m grpc_tools.protoc -Iprotos --python_out=./src/engine --grpc_python_out=./src/engine protos/routes.proto",
     "test": "npm run test:python && npm run test:node",
     "test:node": "jest",
-    "test:python": "concurrently --kill-others --success first \"npm run start:python\" \"python ./src/engine/test_client.py\" ",
+    "test:python": "concurrently --kill-others --success first \"npm run start:python\" \"poetry run python ./src/engine/test_client.py\" ",
     "prepare": "husky install"
   },
   "lint-staged": {

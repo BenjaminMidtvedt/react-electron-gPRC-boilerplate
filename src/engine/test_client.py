@@ -1,6 +1,5 @@
 import routes_pb2
 import routes_pb2_grpc
-import numpy as np
 import unittest
 import grpc
 
