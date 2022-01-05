@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        os: [windows-latest]
 
     steps:
       - name: Check out Git repository
@@ -45,7 +45,7 @@ jobs:
           npm run lint
           npm exec tsc
           npm test
-          
+
       - name: Archive logs if failed
         uses: actions/upload-artifact@v2
         if: failure()
