@@ -7,8 +7,8 @@ import routes_pb2
 import routes_pb2_grpc
 import runtime
 
-logging.basicConfig(filename="engine.log", level=logging.DEBUG)
-logging.debug("This message should go to the log file")
+# logging.basicConfig(filename="engine.log", level=logging.DEBUG)
+# logging.debug("This message should go to the log file")
 
 
 def get_dimensions(arr):
@@ -31,10 +31,14 @@ class RoutesServicer(routes_pb2_grpc.RoutesServicer):
 
 
 def serve():
+    print("Starting server!")
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    print("Adding routes!")
     routes_pb2_grpc.add_RoutesServicer_to_server(RoutesServicer(), server)
+    print("Adding ports!")
     server.add_insecure_port("[::]:50051")
     server.start()
+    print("Started!")
     server.wait_for_termination()
 
 
