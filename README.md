@@ -11,13 +11,6 @@
 </p>
 
 <br>
-
-<div align="center">
-
-[![Build Status][github-actions-status]][github-actions-url]
-[![Github Tag][github-tag-image]][github-tag-url]
-</div>
-
 ## Install
 
 Clone the repo and install dependencies:
@@ -54,7 +47,3 @@ See the [docs and guides of the original boilerplate here](https://electron-reac
 ## License
 
 MIT © [Electron React Boilerplate](https://github.com/electron-react-boilerplate)
-
-[github-actions-status]: hhttps://github.com/BenjaminMidtvedt/react-electron-python-boilerplate/workflows/Test/badge.svg
-[github-actions-url]:https://github.com/BenjaminMidtvedt/react-electron-python-boilerplate/actions
-[github-tag-url]: https://github.com/BenjaminMidtvedt/react-electron-python-boilerplate/releases/latest
