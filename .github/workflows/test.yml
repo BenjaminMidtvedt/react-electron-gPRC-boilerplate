@@ -45,3 +45,10 @@ jobs:
           npm run lint
           npm exec tsc
           npm test
+          
+      - name: Archive logs if failed
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: server-logs
+          path: dist/start_server/engine.log
