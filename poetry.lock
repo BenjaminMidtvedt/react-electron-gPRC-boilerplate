@@ -113,10 +113,18 @@ category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
+[[package]]
+name = "unittest"
+version = "0.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "*"
+
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.11"
-content-hash = "0e61363e5d227f8a15e740ae1f74d7b00667ee417ed3da959eb09c543c2e6c9a"
+content-hash = "2789b2676726da3de289c494197cb4ff3c077430d3f95069416e34d71f446454"
 
 [metadata.files]
 altgraph = [
@@ -273,4 +281,7 @@ pywin32-ctypes = [
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
+unittest = [
+    {file = "unittest2-0.0.0.tar.gz", hash = "sha256:1b492484bea7f68abda5fcc61412e77b6a105e5842355d630f8b75f01add3555"},
 ]

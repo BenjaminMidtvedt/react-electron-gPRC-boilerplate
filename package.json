@@ -2,9 +2,10 @@
   "name": "electron-react-boilerplate",
   "description": "Electron application boilerplate based on React, React Router, Webpack, React Fast Refresh for rapid application development",
   "scripts": {
-    "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
+    "build": "concurrently \"npm run build:main\" \"npm run build:renderer\" \"npm run build:python\"",
     "build:main": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.main.prod.ts",
     "build:renderer": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.renderer.prod.ts",
+    "build:python": "poetry run pyinstaller -y start_server.spec",
     "rebuild": "electron-rebuild --parallel --types prod,dev,optional --module-dir release/app",
     "lint": "cross-env NODE_ENV=development eslint . --ext .js,.jsx,.ts,.tsx",
     "package": "ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build --publish never",
@@ -12,8 +13,11 @@
     "start": "ts-node ./.erb/scripts/check-port-in-use.js && npm run start:renderer",
     "start:main": "cross-env NODE_ENV=development electron -r ts-node/register/transpile-only ./src/main/main.ts",
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
+    "start:python": ".\\dist\\start_server\\start_server",
     "protoc": "proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=src/compiled protos/routes.proto && poetry run python -m grpc_tools.protoc -Iprotos --python_out=./src/engine --grpc_python_out=./src/engine protos/routes.proto",
-    "test": "jest",
+    "test": "npm run test:python && npm run test:node",
+    "test:node": "jest",
+    "test:python": "concurrently --kill-others --success first \"npm run start:python\" \"py ./src/engine/test_client.py\" ",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -87,6 +91,9 @@
     },
     "extraResources": [
       "./assets/**"
+    ],
+    "extraFiles": [
+      "./dist/start_server/**/*"
     ],
     "publish": {
       "provider": "github",

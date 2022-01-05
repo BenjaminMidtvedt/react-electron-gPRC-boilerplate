@@ -5,6 +5,7 @@ import logging
 import grpc
 import routes_pb2
 import routes_pb2_grpc
+import runtime
 
 logging.basicConfig(filename="engine.log", level=logging.DEBUG)
 logging.debug("This message should go to the log file")
@@ -20,6 +21,13 @@ class RoutesServicer(routes_pb2_grpc.RoutesServicer):
 
     Should define all methods defined in .proto file
     """
+
+    def __init__(self):
+        self.runtime = runtime.Runtime()
+
+    def GetGreeting(self, request: routes_pb2.Language, context) -> routes_pb2.Greeting:
+        random_greeting = self.runtime.get_greeting(request.language)
+        return routes_pb2.Greeting(greeting=random_greeting)
 
 
 def serve():

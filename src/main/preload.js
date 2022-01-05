@@ -1,6 +1,9 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
+const client = require('./client');
+
 contextBridge.exposeInMainWorld('electron', {
+  gRPC: client,
   ipcRenderer: {
     myPing() {
       ipcRenderer.send('ipc-example', 'ping');
