@@ -2,7 +2,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 
 const client = require('./client');
 
-contextBridge.exposeInMainWorld('electron', {
+window.electron = {
   gRPC: client,
   ipcRenderer: {
     myPing() {
@@ -23,4 +23,4 @@ contextBridge.exposeInMainWorld('electron', {
       }
     },
   },
-});
+};
