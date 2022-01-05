@@ -5,7 +5,7 @@ import os
 block_cipher = None
 
 
-a = Analysis(['os.path.join('src', 'engine', 'start_server.py')],
+a = Analysis([os.path.join('src', 'engine', 'start_server.py')],
              pathex=[],
              binaries=[],
              datas=[],
