@@ -1,10 +1,11 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+import os
 
 block_cipher = None
 
 
-a = Analysis(['src\\engine\\start_server.py'],
+a = Analysis(['os.path.join('src', 'engine', 'start_server.py')],
              pathex=[],
              binaries=[],
              datas=[],
