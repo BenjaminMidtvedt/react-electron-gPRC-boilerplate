@@ -36,7 +36,7 @@ def serve():
     print("Adding routes!")
     routes_pb2_grpc.add_RoutesServicer_to_server(RoutesServicer(), server)
     print("Adding ports!")
-    server.add_insecure_port("[::]:50051")
+    server.add_insecure_port("127.0.0.1:50051")
     server.start()
     print("Started!")
     server.wait_for_termination()

@@ -13,18 +13,4 @@ describe('App', () => {
   it('Should compile proto', () => {
     expect(Routes).toBeDefined();
   });
-
-  it('Should greet user EN', (done) => {
-    function callback(err: any, res: any) {
-      try {
-        expect(err).toBeUndefined();
-        expect(['Hi!', 'Hello!']).toContain(res.greeting);
-        done();
-      } catch (error) {
-        done(error);
-      }
-    }
-
-    client.GetGreeting({ language: 'en' }, callback);
-  });
 });

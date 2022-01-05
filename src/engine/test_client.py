@@ -6,7 +6,7 @@ import grpc
 
 class EngineClientTests(unittest.TestCase):
     def testGreeting(self):
-        with grpc.insecure_channel("localhost:50051") as channel:
+        with grpc.insecure_channel("127.0.0.1:50051") as channel:
             stub = routes_pb2_grpc.RoutesStub(channel)
 
             response = stub.GetGreeting(routes_pb2.Language(language="en"))
