@@ -5,7 +5,7 @@
 <p>
   Extension to the modern <a href="https://github.com/electron-react-boilerplate/electron-react-boilerplate">election-react-boilerplate</a> to allow seamless communication with a local python process. The main purpose of this is to build applications powered by some local compute engine, for example for machine learning and computer vision. The compute engine gosts a gRPC server for fast and easy communication with the node process. 
   
-  If desired, any compiled language can be used in stead of python, as long as it supports gRPC.
+  If desired, any compiled language can be used in the stead of python, as long as it supports gRPC.
   
   The python script is "compiled" using PyInstaller, so the user does not require python on their local system.
 </p>
