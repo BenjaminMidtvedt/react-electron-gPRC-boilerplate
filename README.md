@@ -12,11 +12,6 @@
 
 [![Build Status][github-actions-status]][github-actions-url]
 [![Github Tag][github-tag-image]][github-tag-url]
-
-[![OpenCollective](https://opencollective.com/electron-react-boilerplate/backers/badge.svg)](#backers)
-[![OpenCollective](https://opencollective.com/electron-react-boilerplate/sponsors/badge.svg)](#sponsors)
-[![StackOverflow][stackoverflow-img]][stackoverflow-url]
-
 </div>
 
 ## Install
@@ -24,7 +19,7 @@
 Clone the repo and install dependencies:
 
 ```bash
-git clone --depth 1 --branch main https://github.com/electron-react-boilerplate/electron-react-boilerplate.git your-project-name
+git clone --depth 1 --branch main https://github.com/BenjaminMidtvedt/react-electron-python-boilerplate.git your-project-name
 cd your-project-name
 npm install
 ```
