@@ -44,8 +44,8 @@ jobs:
           npm run package
           npm run lint
           npm exec tsc
-          npm test:python
-          npm test:node
+          npm run test:python
+          npm run test:node
 
       - name: Archive logs if failed
         uses: actions/upload-artifact@v2
