@@ -10,11 +10,11 @@
  */
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import path, { resolve } from 'path';
+import path from 'path';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
-import { exec, spawn } from 'child_process';
+import server from './start-server';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 
@@ -25,6 +25,8 @@ export default class AppUpdater {
     autoUpdater.checkForUpdatesAndNotify();
   }
 }
+
+server.start();
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -37,19 +39,6 @@ ipcMain.on('ipc-example', async (event, arg) => {
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
-
-  const serverPath = resolve(
-    path.join(__dirname, '../../../../dist/start_server/start_server.exe')
-  );
-  console.log(serverPath);
-  const server = exec(`start ${serverPath}`);
-  console.log(server);
-  server?.stdout?.on('data', (data) => {
-    console.log(`server says: ${data}`);
-  });
-  server?.stderr?.on('data', (data) => {
-    console.log(`server says: ${data}`);
-  });
 }
 
 const isDevelopment =
@@ -57,17 +46,6 @@ const isDevelopment =
 
 if (isDevelopment) {
   require('electron-debug')();
-  const serverPath = resolve(
-    path.join(__dirname, '../../dist/start_server/start_server.exe')
-  );
-  console.log(serverPath);
-  const server = spawn(`${serverPath}`);
-  server?.stdout?.on('data', (data) => {
-    console.log(`server says: ${data}`);
-  });
-  server?.stderr?.on('data', (data) => {
-    console.log(`server says: ${data}`);
-  });
 }
 
 const installExtensions = async () => {

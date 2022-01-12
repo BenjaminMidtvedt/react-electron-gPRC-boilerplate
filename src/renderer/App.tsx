@@ -4,15 +4,14 @@ import icon from '../../assets/icon.svg';
 import './App.css';
 
 const Hello = () => {
-  console.log(window.electron);
   const [greeting, setGreeting] = useState('');
   useEffect(() => {
-    window.electron.gRPC.GetGreeting({ language: 'en' }, (_, val) => {
+    window.electron.gRPC.GetGreeting({ language: 'sv' }, (_, val) => {
       if (val) {
         setGreeting(val.greeting);
       }
     });
-  });
+  }, []);
 
   return (
     <div>
