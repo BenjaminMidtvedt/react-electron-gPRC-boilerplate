@@ -16,12 +16,12 @@ export default {
       );
     }
     const server = spawn(`${serverPath}`);
-    server?.stdout?.on('data', (data) => {
-      console.log(`server says: ${data}`);
-    });
-    server?.stderr?.on('data', (data) => {
-      console.log(`server says: ${data}`);
-    });
+    // server?.stdout?.on('data', (data) => {
+    //   console.log(`server says: ${data}`);
+    // });
+    // server?.stderr?.on('data', (data) => {
+    //   console.log(`server says: ${data}`);
+    // });
 
     return server;
   },
