@@ -9,7 +9,8 @@ const process = server.start();
 
 describe('App', () => {
   afterAll(() => {
-    process.kill(0);
+    process.kill(2);
+    process.unref();
   });
 
   beforeAll(() => {
